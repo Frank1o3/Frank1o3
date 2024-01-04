@@ -1,0 +1,3 @@
+- 👋 Hi, I’m @Frank1o3
+- 👀 I’m interested in AutoHotKey
+- 🌱 I’m currently learning AutoHotKey & Python
