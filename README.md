@@ -1,3 +1,4 @@
-- 👋 Hi, I’m @Frank1o3
-- 👀 I’m interested in C & C++
-- 🌱 I’m currently learning how to make Python Proxies
+- 👋 Hi, I’m @Frank1o3.
+- 👀 I’m interested in C & C++.
+- 🌱 I’m currently learning how to make Python Proxies.
+- 🛠️ I'm Working on a Python Proxy its name is Python-Proxy, i Call it Project Black Hole.
