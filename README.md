@@ -1,4 +1,5 @@
 - 👋 Hi, I’m @Frank1o3.
-- 👀 I’m interested in C & Java.
 - 🌱 I’m currently learning how Proxeis Work.
-- 🛠️ I'm Working on a Python Proxy its name is Python-Proxy, i Call it Project Black Hole.
+- 🛠️ I'm Working on a Python Proxy its name is Python-Proxy.
+
+- Im still a student.
