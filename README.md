@@ -1,6 +1,6 @@
 # Hi there 👋
 
-I'm **Frank1o3**, a 15-year-old programming enthusiast passionate about technology, networking, and automation.  
+I'm **Frank1o3**, a 16-year-old programming enthusiast passionate about technology, networking, and automation.  
 
 ---
 
