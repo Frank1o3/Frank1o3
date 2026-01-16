@@ -1,38 +1,46 @@
 # Hi there 👋
 
-I'm **Frank1o3**, a 16-year-old programming enthusiast passionate about technology, networking, and automation.  
+I'm **Frank1o3**, a 16-year-old developer focused on **automation, networking, and backend development** for web-based software.
 
 ---
 
 ## 🚀 About Me
-- 🐍 Strong in **Python** and **AutoHotKey**  
-- 🌐 Experienced with **JavaScript** and **TypeScript**  
-- ☕ Familiar with **Java** (basic level)  
-- ⚙️ Looking forward to learning **C, C++**, or **C#**  
-- 🛰️ Interests: **Proxies, networking, automation**, and experimenting with creative solutions  
+- 🐍 Strong in **Python**
+- 🌐 Experienced with **JavaScript** and **TypeScript**
+- ☕ Basic experience with **Java**
+- ⚙️ Currently learning **C++**
+- 🧠 Core interests: **automation, networking**, and **backend architecture for web-based systems**
 
 ---
 
-## 🏗️ Featured Project: Bedrock Server
-Easily deploy a **Minecraft Bedrock server** with Docker.  
-- 📦 GitHub Repo: [**bedrock-server**](https://github.com/Frank1o3/bedrock-server)  
-- 🐳 Docker Hub: [**frank1o3/bedrock-server**](https://hub.docker.com/r/frank1o3/bedrock-server)  
+## 🏗️ Featured Project: Bedrock Server Backend
+A **Python-based backend system** that manages and exposes a **Minecraft Bedrock server console** over the network via a web interface.
+
+- 📦 GitHub: [**bedrock-server**](https://github.com/Frank1o3/bedrock-server)
+- 🐳 Docker Hub: [**frank1o3/bedrock-server**](https://hub.docker.com/r/frank1o3/bedrock-server)
+
+This project focuses on backend design, process control, and secure network exposure rather than simple server hosting.
 
 ---
 
-## 🎯 Hobbies
-- 💡 Making random projects that come to mind  
-- 🔌 Example: my [**Python-Proxy**](https://github.com/Frank1o3/Python-Proxy) repo  
-- 🛠️ Automating everyday tasks with **AutoHotKey** and **Python**  
+## 🎯 Projects & Exploration
+- 💡 Building backend-driven tools and services
+- 🔌 Networking and automation experiments
+- 🛠️ Designing APIs and control layers for distributed systems
 
 ---
 
-## 📊 GitHub Stats
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Frank1o3&show_icons=true&theme=radical)  
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Frank1o3&layout=compact&theme=radical)
+## 📊 GitHub & Coding Activity
+
+### GitHub Stats
+![GitHub Stats](https://github-readme-stats-phi-roan-82.vercel.app/api?username=Frank1o3&show_icons=true&theme=radical)
+![Top Languages](https://github-readme-stats-phi-roan-82.vercel.app/api/top-langs/?username=Frank1o3&layout=compact&theme=radical)
+
+### WakaTime Activity
+![WakaTime Stats](https://github-readme-stats-phi-roan-82.vercel.app/api/wakatime?username=frank1o3&layout=compact&langs_count=5&theme=radical)
 
 ---
 
-## 🌐 Connect with Me
-- ✨ Open to collaborating on interesting projects  
-- 💭 Always learning and experimenting  
+## 🌐 Connect & Collaborate
+- ✨ Open to collaborating on backend, networking, or automation-focused projects
+- 💭 Continuously learning and refining system-level design skills
