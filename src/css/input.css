@@ -13,7 +13,7 @@
     --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Base styles - use raw CSS or valid @apply classes only */
+/* Base styles */
 @layer base {
     * {
         box-sizing: border-box;
@@ -55,7 +55,7 @@
     }
 }
 
-/* Components - only use valid Tailwind utilities with @apply */
+/* Components */
 @layer components {
     .glass {
         background: rgba(17, 24, 39, 0.7);
@@ -78,7 +78,9 @@
         background-size: 40px 40px;
     }
 
-    .physics-card {
+    /* Base physics card styles */
+    .physics-card,
+    [data-physics] {
         will-change: transform;
         transform: translate3d(0, 0, 0);
         touch-action: none;
@@ -88,26 +90,59 @@
         position: relative;
         z-index: 10;
         transition: box-shadow 0.15s ease, border-color 0.15s ease;
+        display: inline-block;
     }
 
-    .physics-card:active {
+    [data-physics="card"] {
+        @apply block w-full;
+    }
+
+    [data-physics="badge"] {
+        @apply inline-flex items-center;
+    }
+
+    [data-physics="nav"] {
+        @apply inline-flex items-center;
+        z-index: 20;
+    }
+
+    [data-physics="float"] {
+        @apply relative;
+    }
+
+    .physics-card:active,
+    [data-physics]:active {
         cursor: grabbing;
     }
 
-    .physics-card.dragging {
+    .physics-card.dragging,
+    [data-physics].dragging {
         box-shadow: 0 25px 50px -12px rgba(45, 212, 191, 0.3);
         z-index: 50;
         border-color: rgba(45, 212, 191, 0.4);
     }
 
-    .physics-card a,
-    .physics-card button {
-        pointer-events: auto;
-        cursor: pointer;
+    [data-physics="badge"].dragging {
+        @apply scale-105 shadow-lg;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    /* Restore pointer events for interactive children */
+    .physics-card a:not([data-physics]),
+    .physics-card button,
+    .physics-card input,
+    .physics-card select,
+    .physics-card textarea,
+    [data-physics] a:not([data-physics]),
+    [data-physics] button,
+    [data-physics] input,
+    [data-physics] select,
+    [data-physics] textarea {
+        @apply pointer-events-auto cursor-pointer;
     }
 }
 
-/* Utilities - fade-up animation */
+/* Utilities */
 @layer utilities {
     .fade-up {
         opacity: 0;
@@ -156,4 +191,33 @@
 /* Selection color */
 ::selection {
     background-color: rgba(20, 184, 166, 0.3);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .fade-up,
+    .physics-card,
+    [data-physics] {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    #cursor-glow {
+        display: none;
+    }
+}
+
+@keyframes grid-scroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+.grid-bg {
+    animation: grid-scroll 30s linear infinite;
 }

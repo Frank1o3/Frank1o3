@@ -63,12 +63,40 @@ function animateCursor() {
 }
 animateCursor();
 
+// ===== Reset Physics Button =====
+const resetBtn = document.getElementById('resetPhysics');
+if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+        document.querySelectorAll('[data-physics]').forEach(el => {
+            el.style.transform = '';
+        });
+        // Visual feedback
+        resetBtn.textContent = 'Reset!';
+        setTimeout(() => { resetBtn.textContent = 'Reset Positions'; }, 1000);
+    });
+}
+
 // ===== Initialize Physics =====
 function initPhysics() {
-    const cards = document.querySelectorAll('.physics-card');
-    const physicsCards = Array.from(cards).map(el => new PhysicsCard(el));
+    // Select ALL elements with data-physics attribute
+    const elements = document.querySelectorAll('[data-physics]');
+
+    // Filter: skip elements that are children of other physics elements (prevent nesting)
+    const physicsElements = Array.from(elements).filter(el => {
+        const parentPhysics = el.parentElement?.closest('[data-physics]');
+        return !parentPhysics || parentPhysics === el;
+    });
+
+    // Mobile performance: limit total physics elements
+    const isMobile = window.innerWidth < 768;
+    const maxElements = isMobile ? 12 : 30;
+    const selectedElements = physicsElements.slice(0, maxElements);
+
+    // Initialize physics cards
+    const physicsCards = selectedElements.map(el => new PhysicsCard(el));
     const collisions = new CollisionSystem(physicsCards);
 
+    // Main game loop
     function gameLoop() {
         physicsCards.forEach(card => {
             card.applyPhysics();
@@ -77,6 +105,18 @@ function initPhysics() {
         collisions.check();
         requestAnimationFrame(gameLoop);
     }
+
+    // Handle window resize for mobile detection
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            collisions.isMobile = window.innerWidth < 768;
+            if (collisions.isMobile) collisions.interval = 24;
+            else collisions.interval = 16;
+        }, 150);
+    });
+
     gameLoop();
 }
 

@@ -2,554 +2,315 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franklin | Backend & Automation Developer</title>
-    <meta name="description"
-        content="Portfolio of Frank1o3 - Python Developer focused on backend systems, automation, and networking." />
-
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-
-    <link rel="stylesheet" href="/css/input.css" />
+    <link rel="stylesheet" href="/css/input.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased selection:bg-accent-500/30 overflow-x-hidden">
+<body class="antialiased">
+    <!-- Cursor Glow -->
     <div id="cursor-glow"></div>
 
-    <!-- Nav -->
-    <nav class="fixed top-0 w-full z-50 transition-colors duration-300" id="navbar">
-        <div class="glass mx-4 mt-4 rounded-xl px-6 py-4 max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight hover:text-accent-400 transition-colors">Frank<span
-                    class="text-accent-400">1o3</span></a>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#stack" class="hover:text-white transition-colors">Tech Stack</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    <!-- 🌐 SITE-WIDE BACKGROUND (Moved from hero to root) -->
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+        <div class="absolute inset-0 grid-bg opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-surface-900 via-surface-900/90 to-surface-800"></div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-500/10 via-transparent to-transparent">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-xl font-bold gradient-text" data-physics="nav">Frank<span
+                        class="text-white">1o3</span></a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-accent-400 transition-colors"
+                        data-physics="nav">About</a>
+                    <a href="#stack" class="text-sm font-medium text-gray-300 hover:text-accent-400 transition-colors"
+                        data-physics="nav">Tech Stack</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-gray-300 hover:text-accent-400 transition-colors"
+                        data-physics="nav">Projects</a>
+                    <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-accent-400 transition-colors"
+                        data-physics="nav">Contact</a>
+                </div>
+                <button id="menuToggle" class="md:hidden text-gray-300 hover:text-accent-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <button class="md:hidden text-gray-300 focus:outline-none" id="menuToggle" aria-label="Toggle menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass absolute top-16 left-0 right-0 border-t border-white/5">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-white/5 rounded-md mobile-link">About</a>
+                <a href="#stack"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-white/5 rounded-md mobile-link">Tech
+                    Stack</a>
+                <a href="#projects"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-white/5 rounded-md mobile-link">Projects</a>
+                <a href="#contact"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-accent-400 hover:bg-white/5 rounded-md mobile-link">Contact</a>
+                <button id="menuClose" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="fixed inset-0 z-40 bg-surface-900/95 backdrop-blur-md hidden flex-col items-center justify-center gap-8 text-xl"
-        id="mobileMenu">
-        <button class="absolute top-8 right-6 text-gray-300" id="menuClose" aria-label="Close menu">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <a href="#about" class="hover:text-accent-400 transition-colors mobile-link">About</a>
-        <a href="#stack" class="hover:text-accent-400 transition-colors mobile-link">Tech Stack</a>
-        <a href="#projects" class="hover:text-accent-400 transition-colors mobile-link">Projects</a>
-        <a href="#contact" class="hover:text-accent-400 transition-colors mobile-link">Contact</a>
-    </div>
-
-    <!-- Hero -->
-    <header class="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6 grid-bg overflow-hidden">
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent via-surface-900/50 to-surface-900 pointer-events-none">
-        </div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div
-                class="fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-800 border border-white/10 text-sm text-gray-400 mb-6">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse-slow"></span>
-                Open to collaborate
-            </div>
-            <h1 class="fade-up delay-100 text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-                Building <span class="gradient-text">Backend Systems</span><br>that scale automatically.
-            </h1>
-            <p class="fade-up delay-200 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                I'm <strong class="text-white">Franklin</strong>, a 16-year-old Python developer crafting automation
-                tools, network services, and modern CLI utilities. Shipping real software, one commit at a time.
-            </p>
-            <div class="fade-up delay-300 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects"
-                    class="px-8 py-4 bg-accent-500 hover:bg-accent-400 text-surface-900 font-bold rounded-lg transition-all hover:scale-105 shadow-lg shadow-accent-500/25">
-                    View Projects
-                </a>
-                <a href="https://github.com/Frank1o3" target="_blank"
-                    class="px-8 py-4 bg-surface-800 hover:bg-surface-700 border border-white/10 text-white font-bold rounded-lg transition-all hover:scale-105">
-                    <span class="flex items-center gap-2 justify-center">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
+    <main class="relative min-h-screen">
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center">
+            <div class="max-w-4xl mx-auto px-4 text-center z-10">
+                <div class="inline-flex items-center px-3 py-1 mb-6 text-xs font-medium text-accent-400 bg-accent-400/10 rounded-full border border-accent-400/20 fade-up"
+                    data-physics="float">
+                    <span class="w-1.5 h-1.5 mr-2 bg-accent-400 rounded-full animate-pulse-slow"></span>
+                    Open to collaborate
+                </div>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 fade-up" data-physics="float">
+                    Building Backend Systems<br>
+                    <span class="gradient-text">that scale automatically.</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 fade-up" data-physics="float">
+                    I'm Franklin, a 16-year-old Python developer crafting automation
+                    tools, network services, and modern CLI utilities. Shipping real software, one commit at a time.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up" data-physics="float">
+                    <a href="#projects"
+                        class="px-8 py-3 bg-accent-500 hover:bg-accent-600 text-surface-900 font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-accent-500/25">
+                        View Projects
+                    </a>
+                    <a href="https://github.com/Frank1o3"
+                        class="px-8 py-3 glass hover:bg-white/10 text-white font-semibold rounded-lg transition-all">
                         GitHub Profile
-                    </span>
-                </a>
+                    </a>
+                </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <!-- About -->
-    <section id="about" class="py-24 px-6 relative z-10">
-        <div class="max-w-5xl mx-auto">
-            <div class="glass rounded-2xl p-8 md:p-12 fade-up">
-                <div class="grid md:grid-cols-3 gap-10 items-center">
-                    <div class="md:col-span-2 space-y-6">
-                        <h2 class="text-3xl md:text-4xl font-bold">About Me</h2>
-                        <p class="text-gray-400 leading-relaxed">
-                            I started programming out of curiosity and quickly fell in love with <strong
-                                class="text-white">backend architecture</strong> and <strong
-                                class="text-white">automation</strong>. Based in La Romana, Dominican Republic, I spend
-                            my days writing Python scripts, designing network protocols, and building developer tools
-                            that simplify workflows.
-                        </p>
-                        <p class="text-gray-400 leading-relaxed">
-                            At 16, I focus on shipping functional software rather than just learning syntax. My projects
+        <!-- About Section -->
+        <section id="about" class="relative py-20 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 gradient-text fade-up">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="space-y-4 text-gray-300 leading-relaxed fade-up">
+                        <p>I started programming out of curiosity and quickly fell in love with backend architecture and
+                            automation. Based in La Romana, Dominican Republic, I spend my days writing Python scripts,
+                            designing network protocols, and building developer tools that simplify workflows.</p>
+                        <p>At 16, I focus on shipping functional software rather than just learning syntax. My projects
                             are containerized with Docker, published on PyPI, and actively maintained on GitHub. I'm
                             also an avid Linux enthusiast who spends a fair amount of time ricing and optimizing my
-                            development environment.
+                            development environment.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 fade-up">
+                        <div class="glass p-4 rounded-lg text-center" data-physics="badge">
+                            <span class="block text-xl">📍</span>
+                            <span class="text-sm text-gray-300">La Romana, DR</span>
+                        </div>
+                        <div class="glass p-4 rounded-lg text-center" data-physics="badge">
+                            <span class="block text-xl">🎓</span>
+                            <span class="text-sm text-gray-300">16 Years Old</span>
+                        </div>
+                        <div class="glass p-4 rounded-lg text-center" data-physics="badge">
+                            <span class="block text-xl">⚡</span>
+                            <span class="text-sm text-gray-300">Backend & Automation</span>
+                        </div>
+                        <div class="glass p-4 rounded-lg text-center" data-physics="badge">
+                            <span class="block text-xl">🐧</span>
+                            <span class="text-sm text-gray-300">Linux Ricer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="stack" class="relative py-20 px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-10 gradient-text fade-up">Tech Stack</h2>
+                <div class="flex flex-wrap justify-center gap-3 fade-up">
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-accent-400 border-accent-400/30"
+                        data-physics="badge">Python Primary</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">JavaScript/TS Experienced</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">Docker Containerization</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">Git / CLI Version Control</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">C++ / Java Learning / Basic</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">PyPI / NPM Package Publishing</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">REST APIs Backend Design</span>
+                    <span class="glass px-4 py-2 rounded-full text-sm font-medium text-gray-300"
+                        data-physics="badge">Automation Scripting & Bots</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="relative py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 fade-up">
+                    <h2 class="text-3xl font-bold gradient-text">Featured Projects</h2>
+                    <p class="text-gray-400 mt-2">A selection of tools and systems I've built. Try dragging the cards
+                        around!</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">bedrock-server</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python •
+                                Docker</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Python backend managing Minecraft Bedrock server console
+                            via web interface. Containerized for easy deployment with Docker.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Docker</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Web Console</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">ModForge-CLI</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python • PyPI</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Simple CLI tool for Minecraft mod downloading and
+                            management. Published and installable via pip package manager.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">CLI</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Package
+                                Published</span>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">gropwave</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">TypeScript • VSCode
+                                Extension</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">VSCode Extension leveraging Groq AI models for intelligent
+                            coding assistance and inline suggestions directly in the editor.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">TypeScript</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">AI
+                                Integration</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">VSCode API</span>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">dotfiles</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Hyprland •
+                                Wayland</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">My personal Linux configuration featuring a highly
+                            customized Hyprland setup, ricing, and productivity scripts for a smooth Wayland experience.
                         </p>
-                        <div class="flex flex-wrap gap-4 pt-2">
-                            <div
-                                class="flex items-center gap-3 px-4 py-2 bg-surface-800 rounded-lg border border-white/5">
-                                <span class="text-2xl">📍</span>
-                                <span class="text-sm font-medium">La Romana, DR</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 px-4 py-2 bg-surface-800 rounded-lg border border-white/5">
-                                <span class="text-2xl">🎓</span>
-                                <span class="text-sm font-medium">16 Years Old</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 px-4 py-2 bg-surface-800 rounded-lg border border-white/5">
-                                <span class="text-2xl">⚡</span>
-                                <span class="text-sm font-medium">Backend & Automation</span>
-                            </div>
-                            <div
-                                class="flex items-center gap-3 px-4 py-2 bg-surface-800 rounded-lg border border-white/5">
-                                <span class="text-2xl">🐧</span>
-                                <span class="text-sm font-medium">Linux Ricer</span>
-                            </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Hyprland</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Wayland</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Ricing</span>
                         </div>
                     </div>
-                    <div class="space-y-4"></div>
+                    <!-- Card 5 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">Aimbot</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python • Standalone
+                                App</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Standalone Python application with high-frequency commits
+                            and PRs. Focuses on backend automation and process control with a hosted live demo on GitHub
+                            Pages.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Standalone
+                                App</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">High
+                                Activity</span>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
+                        data-physics-group="projects">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-semibold text-white">Smart-Join</h3>
+                            <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python •
+                                Extension</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">Backend tool extension designed for smart session joining
+                            and network integration. Works as a modular plugin to enhance workflow automation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Extension</span>
+                            <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Session
+                                Joining</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-500 text-sm mt-8 fade-up">💡 Tip: Click and drag the cards to play with
+                    them. They'll bounce back!</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="relative py-20 px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 gradient-text fade-up">Let's Connect</h2>
+                <p class="text-gray-400 mb-8 fade-up">Interested in collaboration, open-source contributions, or just
+                    want to chat about backend systems? Reach out.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up" data-physics="float">
+                    <a href="mailto:franklindelossantosferreras@gmail.com"
+                        class="px-8 py-3 bg-accent-500 hover:bg-accent-600 text-surface-900 font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-accent-500/25">
+                        Email Me
+                    </a>
+                    <a href="https://github.com/Frank1o3"
+                        class="px-8 py-3 glass hover:bg-white/10 text-white font-semibold rounded-lg transition-all">
+                        GitHub
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Tech Stack -->
-    <section id="stack" class="py-16 px-6 relative z-10">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center fade-up">Tech Stack</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up delay-100">
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">Python</span>
-                    <span class="text-xs text-gray-500">Primary</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">JavaScript/TS</span>
-                    <span class="text-xs text-gray-500">Experienced</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">Docker</span>
-                    <span class="text-xs text-gray-500">Containerization</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">Git / CLI</span>
-                    <span class="text-xs text-gray-500">Version Control</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-blue-400/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">C++ / Java</span>
-                    <span class="text-xs text-gray-500">Learning / Basic</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">PyPI / NPM</span>
-                    <span class="text-xs text-gray-500">Package Publishing</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">REST APIs</span>
-                    <span class="text-xs text-gray-500">Backend Design</span>
-                </div>
-                <div
-                    class="glass p-6 rounded-xl flex flex-col items-center gap-3 hover:border-accent-500/40 transition-all group">
-                    <div
-                        class="w-12 h-12 rounded-lg bg-gray-400/10 flex items-center justify-center text-gray-300 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                        </svg>
-                    </div>
-                    <span class="font-semibold">Automation</span>
-                    <span class="text-xs text-gray-500">Scripting & Bots</span>
-                </div>
+        <!-- Footer -->
+        <footer class="relative py-10 px-4 border-t border-white/5">
+            <div
+                class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>📍 La Romana, Dominican Republic</p>
+                <p>© <span id="year"></span> Franklin (Frank1o3). Built with Tailwind CSS & vanilla JS.</p>
             </div>
-        </div>
-    </section>
+        </footer>
+    </main>
 
-    <!-- Projects -->
-    <section id="projects" class="py-24 px-6 relative z-10">
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent-500/20 to-transparent">
-        </div>
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center fade-up">Featured Projects</h2>
-            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto fade-up delay-100">A selection of tools and
-                systems I've built. Try dragging the cards around!</p>
-
-            <div class="grid md:grid-cols-2 gap-6" id="projectGrid">
-                <!-- Bedrock Server -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-200 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">bedrock-server</h3>
-                                <span class="text-xs text-gray-500">Python • Docker</span>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <a href="https://hub.docker.com/r/frank1o3/bedrock-server" target="_blank"
-                                class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                                title="Docker Hub" aria-label="Docker Hub">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M18.4 15.3c-.4.3-.9.5-1.4.5-.8 0-1.5-.3-2-.7-1.2-1.1-1.2-2.8 0-3.8.4-.4.8-.6 1.2-.7 1.1-.4 2.2 0 2.9 1 .8 1.2 1.2 2.7.4 4.2-.3.6-.8 1.1-1.4 1.5zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z" />
-                                </svg>
-                            </a>
-                            <a href="https://github.com/Frank1o3/bedrock-server" target="_blank"
-                                class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                                title="GitHub Repo" aria-label="GitHub Repo">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Python backend managing Minecraft Bedrock server console via
-                        web interface. Containerized for easy deployment with Docker.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">Python</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-purple-500/10 text-purple-400 rounded border border-purple-500/20">Docker</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded border border-gray-500/20">Web
-                            Console</span>
-                    </div>
-                </div>
-
-                <!-- ModForge CLI -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-300 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">ModForge-CLI</h3>
-                                <span class="text-xs text-gray-500">Python • PyPI</span>
-                            </div>
-                        </div>
-                        <a href="https://pypi.org/project/modforge-cli/" target="_blank"
-                            class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                            title="PyPI Package" aria-label="PyPI Package">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2l-4 4v16l4 4 4-4V6l-4-4zm0 2.8l1.2 1.2v12l-1.2 1.2-1.2-1.2v-12l1.2-1.2zm0 0l1.2 1.2v12l-1.2 1.2z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Simple CLI tool for Minecraft mod downloading and management.
-                        Published and installable via pip package manager.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">Python</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-yellow-500/10 text-yellow-400 rounded border border-yellow-500/20">CLI</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-red-500/10 text-red-400 rounded border border-red-500/20">Package
-                            Published</span>
-                    </div>
-                </div>
-
-                <!-- Gropwave -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-200 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">gropwave</h3>
-                                <span class="text-xs text-gray-500">TypeScript • VSCode Extension</span>
-                            </div>
-                        </div>
-                        <a href="https://github.com/Frank1o3/gropwave" target="_blank"
-                            class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                            aria-label="GitHub Repo">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">VSCode Extension leveraging Groq AI models for intelligent
-                        coding assistance and inline suggestions directly in the editor.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-yellow-500/10 text-yellow-400 rounded border border-yellow-500/20">TypeScript</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-green-500/10 text-green-400 rounded border border-green-500/20">AI
-                            Integration</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-purple-500/10 text-purple-400 rounded border border-purple-500/20">VSCode
-                            API</span>
-                    </div>
-                </div>
-
-                <!-- Dotfiles -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-300 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M14 10l-2 1m0 0l-2-1m0 0V8m4 3v5.25m-5.853-2.157C7.266 13.424 6 16.171 6 19c0 0 .892.448 2.25 1.118C10.545 21.25 12 21.25 12 21s1.455 0 3.75-1.132c1.358-.67 2.25-1.118 2.25-1.118 0-2.829-1.266-5.576-2.157-7.757" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">dotfiles</h3>
-                                <span class="text-xs text-gray-500">Hyprland • Wayland</span>
-                            </div>
-                        </div>
-                        <a href="https://github.com/Frank1o3/dotfiles" target="_blank"
-                            class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                            aria-label="GitHub Repo">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">My personal Linux configuration featuring a highly customized
-                        Hyprland setup, ricing, and productivity scripts for a smooth Wayland experience.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-pink-500/10 text-pink-400 rounded border border-pink-500/20">Hyprland</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-blue-400/10 text-blue-300 rounded border border-blue-400/20">Wayland</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded border border-gray-500/20">Ricing</span>
-                    </div>
-                </div>
-
-                <!-- Aimbot (Standalone App) -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-200 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Aimbot</h3>
-                                <span class="text-xs text-gray-500">Python • Standalone App</span>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <a href="https://frank1o3.github.io/Aimbot/" target="_blank"
-                                class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                                title="Live Demo" aria-label="Live Demo">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                            </a>
-                            <a href="https://github.com/Frank1o3/Aimbot" target="_blank"
-                                class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                                title="GitHub Repo" aria-label="GitHub Repo">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Standalone Python application with high-frequency commits and
-                        PRs. Focuses on backend automation and process control with a hosted live demo on GitHub Pages.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">Python</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-orange-500/10 text-orange-400 rounded border border-orange-500/20">Standalone
-                            App</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded border border-gray-500/20">High
-                            Activity</span>
-                    </div>
-                </div>
-
-                <!-- Smart-Join (Extension) -->
-                <div
-                    class="physics-card glass rounded-xl p-6 hover:border-accent-500/40 transition-all fade-up delay-300 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Smart-Join</h3>
-                                <span class="text-xs text-gray-500">Python • Extension</span>
-                            </div>
-                        </div>
-                        <a href="https://github.com/Frank1o3/Smart-Join" target="_blank"
-                            class="p-2 rounded-lg bg-surface-800 hover:bg-surface-700 text-gray-400 hover:text-white transition-colors"
-                            title="GitHub Repo" aria-label="GitHub Repo">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-gray-400 text-sm mb-4">Backend tool extension designed for smart session joining and
-                        network integration. Works as a modular plugin to enhance workflow automation.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span
-                            class="px-2 py-1 text-xs bg-blue-500/10 text-blue-400 rounded border border-blue-500/20">Python</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-cyan-500/10 text-cyan-400 rounded border border-cyan-500/20">Extension</span>
-                        <span
-                            class="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded border border-gray-500/20">Session
-                            Joining</span>
-                    </div>
-                </div>
-            </div>
-
-            <p class="text-center text-gray-600 text-xs mt-6 fade-up delay-400">💡 Tip: Click and drag the cards to play
-                with them. They'll bounce back!</p>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-24 px-6 relative z-10">
-        <div class="max-w-3xl mx-auto text-center fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's Connect</h2>
-            <p class="text-gray-400 mb-10">Interested in collaboration, open-source contributions, or just want to chat
-                about backend systems? Reach out.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <a href="mailto:your.email@example.com"
-                    class="px-6 py-3 bg-surface-800 hover:bg-surface-700 border border-white/10 rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Email Me
-                </a>
-                <a href="https://github.com/Frank1o3" target="_blank"
-                    class="px-6 py-3 bg-accent-600 hover:bg-accent-500 text-white rounded-lg font-medium transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-accent-500/20">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
-                    GitHub
-                </a>
-            </div>
-            <p class="text-sm text-gray-600 mt-8">📍 La Romana, Dominican Republic</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/5 py-8 px-6 text-center relative z-10">
-        <p class="text-gray-500 text-sm">© <span id="year"></span> Franklin (Frank1o3). Built with Tailwind CSS &
-            vanilla JS.</p>
-    </footer>
-
+    <button id="resetPhysics"
+        class="fixed bottom-6 right-6 glass px-4 py-2 rounded-lg text-sm font-medium text-accent-400 hover:text-accent-500 transition-colors z-50">Reset
+        Positions</button>
     <script type="module" src="/js/main.js"></script>
 </body>
 
