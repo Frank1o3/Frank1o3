@@ -1,7 +1,11 @@
-// tailwind.config.js (optional minimal)
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: ['./src/**/*.{html,js}'],
-    // All theme config moved to @theme block in input.css
-    plugins: [],
-}
+    content: [
+        './index.html',
+        './*.{js,ts}',
+        './**/*.{js,ts}'
+    ],
+    // Tailwind v4: theme is in @theme block in input.css, so no theme config needed here
+    plugins: []
+};

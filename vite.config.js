@@ -1,14 +1,16 @@
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
+// vite.config.js
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-    root: 'src',
+    base: '/Frank1o3/',
+    // root stays default (project root) since index.html is here
     build: {
-        outDir: resolve(__dirname, 'dist'),
+        outDir: 'dist',
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'src/index.html'),
+                main: resolve(__dirname, 'index.html'),
             },
         },
     },
@@ -16,4 +18,8 @@ export default defineConfig({
         port: 3000,
         open: true,
     },
-})
+    // Ensure PostCSS config is loaded
+    css: {
+        postcss: './postcss.config.js'
+    }
+});
