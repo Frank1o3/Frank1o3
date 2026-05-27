@@ -4,13 +4,12 @@ import { resolve } from 'path';
 
 export default defineConfig({
     base: '/Frank1o3/',
-    // root stays default (project root) since index.html is here
     build: {
         outDir: 'dist',
         emptyOutDir: true,
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
+                main: resolve(__dirname, 'src/index.html'),
             },
         },
     },
@@ -18,7 +17,7 @@ export default defineConfig({
         port: 3000,
         open: true,
     },
-    // Ensure PostCSS config is loaded
+    // Ensure PostCSS config is loaded for Tailwind v4
     css: {
         postcss: './postcss.config.js'
     }
