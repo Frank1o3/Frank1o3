@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franklin | Backend & Automation Developer</title>
-    <link rel="stylesheet" href="src/css/input.css">
+    <link rel="stylesheet" href="/src/css/input.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="antialiased">
-    <!-- Cursor Glow -->
     <div id="cursor-glow"></div>
 
-    <!-- 🌐 SITE-WIDE BACKGROUND (Moved from hero to root) -->
+    <!-- 🌐 SITE-WIDE BACKGROUND -->
     <div class="fixed inset-0 -z-10 pointer-events-none">
         <div class="absolute inset-0 grid-bg opacity-30"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-surface-900 via-surface-900/90 to-surface-800"></div>
@@ -49,7 +49,6 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden glass absolute top-16 left-0 right-0 border-t border-white/5">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#about"
@@ -167,111 +166,160 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 fade-up">
                     <h2 class="text-3xl font-bold gradient-text">Featured Projects</h2>
-                    <p class="text-gray-400 mt-2">A selection of tools and systems I've built. Try dragging the cards
-                        around!</p>
+                    <p class="text-gray-400 mt-2">All projects are open-source under the MIT License. Try dragging the
+                        cards around!</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">bedrock-server</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python •
                                 Docker</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">Python backend managing Minecraft Bedrock server console
-                            via web interface. Containerized for easy deployment with Docker.</p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Python backend managing Minecraft Bedrock server
+                            console via web interface. Containerized for easy deployment with Docker.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Docker</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Web Console</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/bedrock-server" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                     <!-- Card 2 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">ModForge-CLI</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python • PyPI</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">Simple CLI tool for Minecraft mod downloading and
-                            management. Published and installable via pip package manager.</p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Simple CLI tool for Minecraft mod downloading
+                            and management. Published and installable via pip package manager.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">CLI</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Package
                                 Published</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/ModForge-CLI" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                     <!-- Card 3 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">gropwave</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">TypeScript • VSCode
                                 Extension</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">VSCode Extension leveraging Groq AI models for intelligent
-                            coding assistance and inline suggestions directly in the editor.</p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">VSCode Extension leveraging Groq AI models for
+                            intelligent coding assistance and inline suggestions directly in the editor.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">TypeScript</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">AI
                                 Integration</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">VSCode API</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/gropwave" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                     <!-- Card 4 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">dotfiles</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Hyprland •
                                 Wayland</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">My personal Linux configuration featuring a highly
-                            customized Hyprland setup, ricing, and productivity scripts for a smooth Wayland experience.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">My personal Linux configuration featuring a
+                            highly customized Hyprland setup, ricing, and productivity scripts for a smooth Wayland
+                            experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Hyprland</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Wayland</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Ricing</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/dotfiles" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                     <!-- Card 5 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">Aimbot</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python • Standalone
                                 App</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">Standalone Python application with high-frequency commits
-                            and PRs. Focuses on backend automation and process control with a hosted live demo on GitHub
-                            Pages.</p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Standalone Python application with
+                            high-frequency commits and PRs. Focuses on backend automation and process control with a
+                            hosted live demo on GitHub Pages.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Standalone
                                 App</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">High
                                 Activity</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/Aimbot" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                     <!-- Card 6 -->
-                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors" data-physics="card"
-                        data-physics-group="projects">
+                    <div class="glass p-6 rounded-xl hover:border-accent-400/50 transition-colors flex flex-col"
+                        data-physics="card" data-physics-group="projects">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-xl font-semibold text-white">Smart-Join</h3>
                             <span class="text-xs px-2 py-1 bg-surface-700 rounded text-accent-400">Python •
                                 Extension</span>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4">Backend tool extension designed for smart session joining
-                            and network integration. Works as a modular plugin to enhance workflow automation.</p>
-                        <div class="flex flex-wrap gap-2">
+                        <p class="text-gray-400 text-sm mb-4 flex-grow">Backend tool extension designed for smart
+                            session joining and network integration. Works as a modular plugin to enhance workflow
+                            automation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Python</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Extension</span>
                             <span class="text-xs px-2 py-1 bg-accent-500/10 text-accent-400 rounded">Session
                                 Joining</span>
                         </div>
+                        <a href="https://github.com/Frank1o3/Smart-Join" target="_blank" rel="noopener"
+                            class="inline-flex items-center text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                            </svg>
+                            View Source
+                        </a>
                     </div>
                 </div>
                 <p class="text-center text-gray-500 text-sm mt-8 fade-up">💡 Tip: Click and drag the cards to play with
@@ -279,14 +327,41 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact & Availability Section -->
         <section id="contact" class="relative py-20 px-4">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl font-bold mb-6 gradient-text fade-up">Let's Connect</h2>
                 <p class="text-gray-400 mb-8 fade-up">Interested in collaboration, open-source contributions, or just
                     want to chat about backend systems? Reach out.</p>
+
+                <!-- Availability Block -->
+                <div class="glass p-6 rounded-xl mb-8 max-w-lg mx-auto text-left fade-up" data-physics="float">
+                    <h3 class="text-lg font-semibold text-white mb-4 flex items-center">
+                        <span class="mr-2">📅</span> Availability & Contracting
+                    </h3>
+                    <div class="space-y-3 text-sm text-gray-300">
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Monday - Friday</span>
+                            <span class="font-medium text-accent-400">6:00 PM - 8:30 PM (AST)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Saturday</span>
+                            <span class="font-medium text-gray-500">Unavailable</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Sunday</span>
+                            <span class="font-medium text-accent-400">1:00 PM - 10:00 PM (AST)</span>
+                        </div>
+                        <p class="pt-2 text-xs text-gray-400">
+                            Open to milestone-based contracts & paid trials. All work delivered under the
+                            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener"
+                                class="text-accent-400 hover:underline">MIT License</a>.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up" data-physics="float">
-                    <a href="mailto:franklindelossantosferreras@gmail.com"
+                    <a href="mailto:jahdy1o3@gmail.com"
                         class="px-8 py-3 bg-accent-500 hover:bg-accent-600 text-surface-900 font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-accent-500/25">
                         Email Me
                     </a>
@@ -303,7 +378,8 @@
             <div
                 class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                 <p>📍 La Romana, Dominican Republic</p>
-                <p>© <span id="year"></span> Franklin (Frank1o3). Built with Tailwind CSS & vanilla JS.</p>
+                <p>© <span id="year"></span> Franklin (Frank1o3). All projects are open-source under the MIT License.
+                    Built with Tailwind CSS & vanilla JS.</p>
             </div>
         </footer>
     </main>
@@ -311,7 +387,7 @@
     <button id="resetPhysics"
         class="fixed bottom-6 right-6 glass px-4 py-2 rounded-lg text-sm font-medium text-accent-400 hover:text-accent-500 transition-colors z-50">Reset
         Positions</button>
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
 </body>
 
 </html>
