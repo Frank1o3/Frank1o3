@@ -2,7 +2,7 @@
 
 I'm **Frank1o3**, a 16-year-old developer focused on **automation, networking, and backend development** for web-based software.
 
-you can find my "portfolio" [here](https://frank1o3.github.io/Frank1o3/).
+you can find my "portfolio" at: https://frank1o3.github.io/Frank1o3/
 
 
 ---
