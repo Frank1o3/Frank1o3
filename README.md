@@ -4,7 +4,8 @@ I'm **Frank1o3**, a developer who enjoys building developer tools, backend syste
 
 Most of my projects are designed to solve real problems I've encountered, whether that's simplifying modpack creation, improving AI-assisted development, or building reusable software libraries.
 
-🌐 **Website:** https://frank1o3.github.io/Frank1o3/
+🌐 **Website:** https://frank1o3.duckdns.org/
+**Note**: My website and other hosted things may be down as they are self hosted on a mini pc :)
 
 ---
 
