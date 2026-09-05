@@ -91,11 +91,11 @@ These are the configurations I actively use while developing my projects.
 
 **Languages**
 
-* Rust
+* Rust (learning)
 * Python
 * JavaScript
 * TypeScript
-* Java
+* Java (learning)
 * C++ (learning)
 
 **Interests**
